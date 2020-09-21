@@ -1,9 +1,7 @@
 package cs.mum.edu.orangeteam.compro.model;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 import cs.mum.edu.orangeteam.compro.model.*;
 
 @Entity
@@ -11,9 +9,20 @@ import cs.mum.edu.orangeteam.compro.model.*;
 public class CptReport extends Report {
 	@Column(length =150)
 	private String cptReport;
+	@ManyToOne
+	private Job job;
 	
 	public CptReport() {
 		super();
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+		job.getCptReports().add(this);
 	}
 
 	public String getCptReport() {

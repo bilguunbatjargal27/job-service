@@ -4,15 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 public class Job {
@@ -26,9 +18,20 @@ public class Job {
 	private Date startDate;
 	
 	@OneToMany(mappedBy = "job")
-	private List<Report> cptReports = new ArrayList<>();
-	
+	private List<CptReport> cptreports = new ArrayList<>();
 
+	@Embedded
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public Long getId() {
 		return id;
@@ -62,15 +65,13 @@ public class Job {
 		this.startDate = startDate;
 	}
 
-	public List<Report> getCptReports() {
-		return cptReports;
+	public List<CptReport> getCptreports() {
+		return cptreports;
 	}
 
-	public void setCptReports(List<Report> cptReports) {
-		this.cptReports = cptReports;
+	public void setCptreports(List<CptReport> cptreports) {
+		this.cptreports = cptreports;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -79,7 +80,7 @@ public class Job {
 				", title='" + title + '\'' +
 				", salary=" + salary +
 				", startDate=" + startDate +
-				", cptReports=" + cptReports +
+				", cptReports=" + cptreports +
 
 				'}';
 	}
