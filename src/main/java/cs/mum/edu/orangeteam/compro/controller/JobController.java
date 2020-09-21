@@ -24,7 +24,7 @@ public class JobController {
         return jobService.getJobById(id);
     }
 
-    @PostMapping("/add")
+    @PostMapping("")
     public Job addJob(@RequestBody final Job job){
         return jobService.addJob(job);
     }
