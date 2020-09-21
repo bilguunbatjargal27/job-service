@@ -30,5 +30,16 @@ public class JobServiceImpl implements JobService {
         return jobRepository.save(job);
     }
 
+    @Override
+    public Job updateJob(Job job) {
+        return jobRepository.save(job);
+    }
+
+    @Override
+    public void deleteJob(Long id) {
+        jobRepository.deleteById(id);
+
+    }
+
 
 }
