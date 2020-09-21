@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +27,15 @@ public class Job {
 	private Date startDate;
 	
 	@OneToMany(mappedBy = "job")
-	private List<Report> cptReports = new ArrayList<>();
+	private List<Report> reports = new ArrayList<>();
 	
+	@ManyToOne
+	//@JoinColumn(name)
+	private Coach coach;
+	
+	@Embedded
+	private Address address;
+
 
 
 	public Long getId() {
@@ -62,12 +70,12 @@ public class Job {
 		this.startDate = startDate;
 	}
 
-	public List<Report> getCptReports() {
-		return cptReports;
+	public List<Report> getReports() {
+		return reports;
 	}
 
-	public void setCptReports(List<Report> cptReports) {
-		this.cptReports = cptReports;
+	public void setReports(List<Report> reports) {
+		this.reports = reports;
 	}
 
 
@@ -79,7 +87,7 @@ public class Job {
 				", title='" + title + '\'' +
 				", salary=" + salary +
 				", startDate=" + startDate +
-				", cptReports=" + cptReports +
+				", reports=" + reports +
 
 				'}';
 	}
