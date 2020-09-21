@@ -29,4 +29,14 @@ public class JobController {
         return jobService.addJob(job);
     }
 
+    @PutMapping("/update")
+    public Job updateJob(@RequestBody final Job job){
+        return jobService.updateJob(job);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public boolean deleteJob(@PathVariable("id") Long id){
+        jobService.deleteJob(id);
+        return true;
+    }
 }

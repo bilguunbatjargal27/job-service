@@ -28,8 +28,59 @@ public class Job {
 	@OneToMany(mappedBy = "job")
 	private List<Report> cptReports = new ArrayList<>();
 	
-	@ManyToOne
-	//@JoinColumn(name)
-	private Coach coach;
 
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public List<Report> getCptReports() {
+		return cptReports;
+	}
+
+	public void setCptReports(List<Report> cptReports) {
+		this.cptReports = cptReports;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Job{" +
+				"id=" + id +
+				", title='" + title + '\'' +
+				", salary=" + salary +
+				", startDate=" + startDate +
+				", cptReports=" + cptReports +
+
+				'}';
+	}
 }

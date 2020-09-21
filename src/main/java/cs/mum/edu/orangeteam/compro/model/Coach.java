@@ -32,7 +32,7 @@ public class Coach {
 	// from course-service
 	//private List<Student> students = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "coach")
+	@OneToMany
 	private List<Job> jobs = new ArrayList<>();
 
 	public Coach() {
