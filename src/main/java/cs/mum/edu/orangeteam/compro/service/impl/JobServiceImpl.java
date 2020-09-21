@@ -6,6 +6,7 @@ import cs.mum.edu.orangeteam.compro.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 @Service
@@ -14,9 +15,7 @@ public class JobServiceImpl implements JobService {
     @Autowired
     private JobRepository jobRepository;
     @Override
-    public List<Job> getAllJobs() {
-        return jobRepository.findAll();
-    }
+    public List<Job> getAllJobs() { return jobRepository.findAll();  }
 
     @Override
     public Job getJobById(Long id) {
@@ -30,4 +29,6 @@ public class JobServiceImpl implements JobService {
     public Job addJob(Job job) {
         return jobRepository.save(job);
     }
+
+
 }
