@@ -6,4 +6,5 @@ import cs.mum.edu.orangeteam.compro.model.Coach;
 
 public interface CoachService {
 	public List<Coach> getAllCoaches();
+
 }
