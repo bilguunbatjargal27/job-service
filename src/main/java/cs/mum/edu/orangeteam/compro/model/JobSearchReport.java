@@ -9,4 +9,23 @@ import javax.persistence.Entity;
 public class JobSearchReport extends Report{
 	@Column(length =100)
 	private String jobSearchReport;
+
+	public JobSearchReport() {
+		super();
+	}
+
+	public String getJobSearchReport() {
+		return jobSearchReport;
+	}
+
+	public void setJobSearchReport(String jobSearchReport) {
+		this.jobSearchReport = jobSearchReport;
+	}
+
+	@Override
+	public String toString() {
+		return "JobSearchReport [jobSearchReport=" + jobSearchReport + ", getJobSearchReport()=" + getJobSearchReport()
+				+ "]";
+	}	
+	
 }
