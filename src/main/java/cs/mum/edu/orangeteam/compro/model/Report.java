@@ -1,6 +1,7 @@
 package cs.mum.edu.orangeteam.compro.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,5 +27,8 @@ public class Report {
 	@ManyToOne
 	//@JoinColumn(name)
 	private Job job;
+
+
+
 
 }
