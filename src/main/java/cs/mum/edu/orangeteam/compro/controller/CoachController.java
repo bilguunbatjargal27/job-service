@@ -3,6 +3,8 @@ package cs.mum.edu.orangeteam.compro.controller;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import cs.mum.edu.orangeteam.compro.model.CptReport;
+import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -44,6 +46,7 @@ public class CoachController {
 		return testnames;
 	}
 
+
 	@GetMapping("")
 	public List<Coach> getAllCoaches() {
 		return coachService.getAllCoaches();
@@ -69,5 +72,15 @@ public class CoachController {
 		coachService.deleteCoach(id);
 		return true;
 	}
+
+	@GetMapping("/cptreport")
+	public List<CptReport> getAllCptReport(){
+		return coachService.getAllCptReport();
+	}
+//	@GetMapping("/jobsearch")
+//	public List<JobSearchReport> getAllJobSearch(){
+//		return coachService.getAllJobSearch();
+//	}
+
 
 }

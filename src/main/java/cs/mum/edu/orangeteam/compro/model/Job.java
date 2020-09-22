@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import javax.persistence.*;
+
 @Entity
 public class Job {
 	@Id
@@ -33,10 +35,20 @@ public class Job {
 	//@JoinColumn(name)
 	private Coach coach;
 	
+	private List<CptReport> cptreports = new ArrayList<>();
+	//---------------------------------------
+//	private CptReport cptReport;
+
 	@Embedded
 	private Address address;
 
+	public Address getAddress() {
+		return address;
+	}
 
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public Long getId() {
 		return id;
@@ -77,8 +89,14 @@ public class Job {
 	public void setReports(List<Report> reports) {
 		this.reports = reports;
 	}
+	
+	public List<CptReport> getCptreports() {
+		return cptreports;
+	}
 
-
+	public void setCptreports(List<CptReport> cptreports) {
+		this.cptreports = cptreports;
+	}
 
 	@Override
 	public String toString() {
@@ -88,7 +106,7 @@ public class Job {
 				", salary=" + salary +
 				", startDate=" + startDate +
 				", reports=" + reports +
-
+				", cptReports=" + cptreports +
 				'}';
 	}
 }

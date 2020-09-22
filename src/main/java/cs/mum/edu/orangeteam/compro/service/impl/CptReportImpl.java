@@ -2,8 +2,10 @@ package cs.mum.edu.orangeteam.compro.service.impl;
 
 import cs.mum.edu.orangeteam.compro.DAO.CptReportRepository;
 import cs.mum.edu.orangeteam.compro.model.CptReport;
+import cs.mum.edu.orangeteam.compro.model.Job;
 import cs.mum.edu.orangeteam.compro.service.CptReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,4 +44,7 @@ public class CptReportImpl implements CptReportService {
     public Collection<CptReport> findAll() {
         return cpt.findAll();
     }
+
+
+
 }
