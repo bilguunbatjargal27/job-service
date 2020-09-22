@@ -1,6 +1,6 @@
 package cs.mum.edu.orangeteam.compro.service.impl;
 
-import cs.mum.edu.orangeteam.compro.DAO.ReportRepository;
+import cs.mum.edu.orangeteam.compro.repository.ReportRepository;
 import cs.mum.edu.orangeteam.compro.model.Report;
 import cs.mum.edu.orangeteam.compro.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;

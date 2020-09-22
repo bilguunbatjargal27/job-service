@@ -3,12 +3,11 @@ package cs.mum.edu.orangeteam.compro.service.impl;
 import java.util.List;
 
 import cs.mum.edu.orangeteam.compro.model.CptReport;
-import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cs.mum.edu.orangeteam.compro.DAO.CoachRepository;
+import cs.mum.edu.orangeteam.compro.repository.CoachRepository;
 import cs.mum.edu.orangeteam.compro.model.Coach;
 import cs.mum.edu.orangeteam.compro.service.CoachService;
 

@@ -1,4 +1,4 @@
-package cs.mum.edu.orangeteam.compro.DAO;
+package cs.mum.edu.orangeteam.compro.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
