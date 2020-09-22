@@ -36,6 +36,8 @@ public class JobController {
 
     @DeleteMapping("/delete/{id}")
     public boolean deleteJob(@PathVariable("id") Long id){
+    	Job job = jobService.getJobById(id);
+    	if(job == null) return false;
         jobService.deleteJob(id);
         return true;
     }

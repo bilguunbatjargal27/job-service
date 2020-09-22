@@ -69,6 +69,8 @@ public class CoachController {
 
 	@DeleteMapping("/{id}")
 	public boolean deleteCoach(@PathVariable("id") Long id) {
+		Coach coach = coachService.findCoachById(id);
+		if(coach == null) return false;
 		coachService.deleteCoach(id);
 		return true;
 	}

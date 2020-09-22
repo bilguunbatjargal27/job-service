@@ -38,6 +38,8 @@ public class CptController {
 
     @DeleteMapping("/delete/{id}")
     public boolean deleteCptReport(@PathVariable("id") Long id){
+    	CptReport cptReport = cptReportService.findCptReportById(id);
+    	if(cptReport == null) return false;
         cptReportService.deleteCptReport(id);
         return true;
     }
