@@ -37,6 +37,8 @@ public class ReportController {
 
     @DeleteMapping("/delete/{id}")
     public boolean deleteReport(@PathVariable("id") Long id){
+    	Report report = reportService.findReportById(id);
+    	if(report == null) return false;
         reportService.deleteReport(id);
         return true;
     }

@@ -22,9 +22,6 @@ public class CoachServiceImpl implements CoachService {
 	@Autowired
 	private JobServiceImpl jobService;
 
-//	@Autowired
-//	private JobSearchImpl jobSearch;
-	
 	@Override
 	public List<Coach> getAllCoaches() {
 
@@ -58,7 +55,5 @@ public class CoachServiceImpl implements CoachService {
 	public List<CptReport> getAllCptReport(){
 		return jobService.getAllCptReport();
 	}
-//	public List<JobSearchReport> getAllJobSearch(){
-//		return jobSearch.getAllJobSearch();
-//	}
+
 }
