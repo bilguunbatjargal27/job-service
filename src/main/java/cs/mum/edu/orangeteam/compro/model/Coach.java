@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import cs.mum.edu.orangeteam.compro.model.Address;
+
 @Entity
 public class Coach {
 	@Id
@@ -94,7 +95,15 @@ public class Coach {
 	public void setJobs(List<Job> jobs) {
 		this.jobs = jobs;
 	}
-
+	
+	public boolean addJob(Job job) {
+		return jobs.add(job);		 
+	}
+	
+	public boolean removeJob(Job job) {
+		return jobs.remove(job);		 
+	}
+		
 	@Override
 	public String toString() {
 		return "Coach [id=" + id + ", name=" + name + ", hiringDate=" + hiringDate + ", office=" + office + ", address="
