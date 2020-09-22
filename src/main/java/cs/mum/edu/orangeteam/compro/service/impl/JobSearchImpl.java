@@ -1,6 +1,6 @@
 package cs.mum.edu.orangeteam.compro.service.impl;
 
-import cs.mum.edu.orangeteam.compro.DAO.JobSearchRepository;
+import cs.mum.edu.orangeteam.compro.repository.JobSearchRepository;
 import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import cs.mum.edu.orangeteam.compro.service.JobSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
