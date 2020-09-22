@@ -4,8 +4,8 @@ spring:
     name: job-service
   datasource:
     url: jdbc:mysql://localhost/comproJob
-    username: ea
-    password: cs544
+    username: root
+    password: rimna23022005
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
