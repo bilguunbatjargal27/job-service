@@ -19,6 +19,8 @@ public class Job {
 	
 	@OneToMany(mappedBy = "job")
 	private List<CptReport> cptreports = new ArrayList<>();
+	//---------------------------------------
+//	private CptReport cptReport;
 
 	@Embedded
 	private Address address;

@@ -22,8 +22,9 @@ public class CptReport extends Report {
 
 	public void setJob(Job job) {
 		this.job = job;
-		job.getCptReports().add(this);
+		job.getCptreports().add(this);
 	}
+
 
 	public String getCptReport() {
 		return cptReport;
