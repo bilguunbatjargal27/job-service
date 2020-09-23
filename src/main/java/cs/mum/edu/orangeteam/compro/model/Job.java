@@ -28,27 +28,12 @@ public class Job {
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
-	@OneToMany(mappedBy = "job")
-	private List<Report> reports = new ArrayList<>();
-	
 	@ManyToOne
-	//@JoinColumn(name)
+	@JoinColumn(name = "coach_id")
 	private Coach coach;
-	
-	private List<CptReport> cptreports = new ArrayList<>();
-	//---------------------------------------
-//	private CptReport cptReport;
 
 	@Embedded
 	private Address address;
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public Long getId() {
 		return id;
@@ -82,31 +67,19 @@ public class Job {
 		this.startDate = startDate;
 	}
 
-	public List<Report> getReports() {
-		return reports;
+	public Coach getCoach() {
+		return coach;
 	}
 
-	public void setReports(List<Report> reports) {
-		this.reports = reports;
-	}
-	
-	public List<CptReport> getCptreports() {
-		return cptreports;
+	public void setCoach(Coach coach) {
+		this.coach = coach;
 	}
 
-	public void setCptreports(List<CptReport> cptreports) {
-		this.cptreports = cptreports;
+	public Address getAddress() {
+		return address;
 	}
 
-	@Override
-	public String toString() {
-		return "Job{" +
-				"id=" + id +
-				", title='" + title + '\'' +
-				", salary=" + salary +
-				", startDate=" + startDate +
-				", reports=" + reports +
-				", cptReports=" + cptreports +
-				'}';
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

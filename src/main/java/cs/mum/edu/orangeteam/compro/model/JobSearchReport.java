@@ -1,17 +1,51 @@
 package cs.mum.edu.orangeteam.compro.model;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-//@DiscriminatorValue("JobSearchReport")
-public class JobSearchReport extends Report{
+public class JobSearchReport{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Temporal(TemporalType.DATE)
+	private Date submittedDate;
+
+	@ManyToOne
+	@JoinColumn(name = "job_id")
+	private Job job;
+
 	@Column(length =100)
 	private String jobSearchReport;
 
 	public JobSearchReport() {
-		super();
+
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getSubmittedDate() {
+		return submittedDate;
+	}
+
+	public void setSubmittedDate(Date submittedDate) {
+		this.submittedDate = submittedDate;
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
 	public String getJobSearchReport() {
@@ -21,11 +55,4 @@ public class JobSearchReport extends Report{
 	public void setJobSearchReport(String jobSearchReport) {
 		this.jobSearchReport = jobSearchReport;
 	}
-
-	@Override
-	public String toString() {
-		return "JobSearchReport [jobSearchReport=" + jobSearchReport + ", getJobSearchReport()=" + getJobSearchReport()
-				+ "]";
-	}	
-	
 }

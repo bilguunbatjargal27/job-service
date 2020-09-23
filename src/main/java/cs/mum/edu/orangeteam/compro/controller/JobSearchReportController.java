@@ -2,7 +2,6 @@ package cs.mum.edu.orangeteam.compro.controller;
 
 import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import cs.mum.edu.orangeteam.compro.service.JobSearchService;
-import cs.mum.edu.orangeteam.compro.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

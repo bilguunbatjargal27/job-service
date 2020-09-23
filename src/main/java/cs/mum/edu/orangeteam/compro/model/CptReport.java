@@ -4,27 +4,43 @@ import javax.persistence.*;
 
 import cs.mum.edu.orangeteam.compro.model.*;
 
+import java.util.Date;
+
 @Entity
-//@DiscriminatorValue("CptReport")
-public class CptReport extends Report {
+public class CptReport {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Temporal(TemporalType.DATE)
+	private Date submittedDate;
+
 	@Column(length =150)
 	private String cptReport;
+
 	@ManyToOne
+	@JoinColumn(name = "job_id")
 	private Job job;
-	
+
 	public CptReport() {
-		super();
 	}
 
-	public Job getJob() {
-		return job;
+	public Long getId() {
+		return id;
 	}
 
-	public void setJob(Job job) {
-		this.job = job;
-		job.getCptreports().add(this);
+	public void setId(Long id) {
+		this.id = id;
 	}
 
+	public Date getSubmittedDate() {
+		return submittedDate;
+	}
+
+	public void setSubmittedDate(Date submittedDate) {
+		this.submittedDate = submittedDate;
+	}
 
 	public String getCptReport() {
 		return cptReport;
@@ -33,6 +49,12 @@ public class CptReport extends Report {
 	public void setCptReport(String cptReport) {
 		this.cptReport = cptReport;
 	}
-	
-	
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
 }

@@ -29,12 +29,6 @@ public class Coach {
 	private Address address;
 	@Column(length = 120)
 	private String responsibilityDescription;
-	
-	// from course-service
-	//private List<Student> students = new ArrayList<>();
-	
-	@OneToMany
-	private List<Job> jobs = new ArrayList<>();
 
 	public Coach() {
 		super();
@@ -88,26 +82,11 @@ public class Coach {
 		this.responsibilityDescription = responsibilityDescription;
 	}
 
-	public List<Job> getJobs() {
-		return jobs;
-	}
 
-	public void setJobs(List<Job> jobs) {
-		this.jobs = jobs;
-	}
-	
-	public boolean addJob(Job job) {
-		return jobs.add(job);		 
-	}
-	
-	public boolean removeJob(Job job) {
-		return jobs.remove(job);		 
-	}
-		
 	@Override
 	public String toString() {
 		return "Coach [id=" + id + ", name=" + name + ", hiringDate=" + hiringDate + ", office=" + office + ", address="
-				+ address + ", responsibilityDescription=" + responsibilityDescription + ", jobs=" + jobs + "]";
+				+ address + ", responsibilityDescription=" + responsibilityDescription + "]";
 	}
 
 	

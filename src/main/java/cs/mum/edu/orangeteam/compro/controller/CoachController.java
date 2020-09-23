@@ -3,6 +3,7 @@ package cs.mum.edu.orangeteam.compro.controller;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import cs.mum.edu.orangeteam.compro.DTO.Student;
 import cs.mum.edu.orangeteam.compro.model.CptReport;
 import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,15 +36,12 @@ public class CoachController {
 	private RestTemplate restTemplate;
 
 	@GetMapping("getStudents")
-	public List<String> getStudentsName() {
-//		ResponseEntity<List<String>> names = restTemplate.
-//				exchange("http://localhost:8001/course/students/getNames", HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>(){});
-
-		ResponseEntity<List<String>> names = restTemplate.exchange("http://course-service/course/students/getNames",
-				HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>() {
+	public List<Student> getStudentsName() {
+		ResponseEntity<List<Student>> responseEntity = restTemplate.exchange("http://course-service/course/students",
+				HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
 				});
-		List<String> testnames = names.getBody();
-		return testnames;
+		List<Student> students = responseEntity.getBody();
+		return students;
 	}
 
 
