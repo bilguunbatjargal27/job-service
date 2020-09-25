@@ -8,14 +8,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+
 @Service
 @Transactional
 public class CptReportImpl implements CptReportService {
 
-   @Autowired
-   private CptReportRepository cpt;
+    @Autowired
+    private CptReportRepository cpt;
 
-   @Override
+    @Override
     public CptReport addCptReport(CptReport cptReport) {
         return cpt.save(cptReport);
     }
@@ -27,12 +28,12 @@ public class CptReportImpl implements CptReportService {
 
     @Override
     public void deleteCptReport(Long id) {
-         cpt.deleteById(id);
+        cpt.deleteById(id);
     }
 
     @Override
     public CptReport findCptReportById(Long id) {
-        if(cpt.findById(id).isPresent())
+        if (cpt.findById(id).isPresent())
             return cpt.findById(id).get();
         else
             return null;
@@ -42,7 +43,6 @@ public class CptReportImpl implements CptReportService {
     public Collection<CptReport> findAll() {
         return cpt.findAll();
     }
-
 
 
 }

@@ -14,38 +14,38 @@ import java.util.List;
 @Transactional
 public class JobSearchImpl implements JobSearchService {
 
-	@Autowired
-	private JobSearchRepository jobSearchRepository;
+    @Autowired
+    private JobSearchRepository jobSearchRepository;
 
-	@Override
-	public List<JobSearchReport> getAllJobSearchReport() {
+    @Override
+    public List<JobSearchReport> getAllJobSearchReport() {
 
-		return jobSearchRepository.findAll();
-	}
+        return jobSearchRepository.findAll();
+    }
 
-	@Override
-	public JobSearchReport getJobSearchReportById(Long id) {
-		if(jobSearchRepository.findById(id).isPresent()) {
-			return jobSearchRepository.findById(id).get();
-		}
-		return null;
-	}
+    @Override
+    public JobSearchReport getJobSearchReportById(Long id) {
+        if (jobSearchRepository.findById(id).isPresent()) {
+            return jobSearchRepository.findById(id).get();
+        }
+        return null;
+    }
 
-	@Override
-	public JobSearchReport addJobSearchReport(JobSearchReport report) {
+    @Override
+    public JobSearchReport addJobSearchReport(JobSearchReport report) {
 
-		return jobSearchRepository.save(report);
-	}
+        return jobSearchRepository.save(report);
+    }
 
-	@Override
-	public JobSearchReport updateJobSearchReport(JobSearchReport report) {
-		return jobSearchRepository.save(report);
-	}
+    @Override
+    public JobSearchReport updateJobSearchReport(JobSearchReport report) {
+        return jobSearchRepository.save(report);
+    }
 
-	@Override
-	public void deleteJobSearchReport(Long id) {
-		 jobSearchRepository.existsById(id);
-	}
+    @Override
+    public void deleteJobSearchReport(Long id) {
+        jobSearchRepository.existsById(id);
+    }
 
 
 }

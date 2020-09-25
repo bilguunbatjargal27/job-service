@@ -7,13 +7,15 @@ import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import java.util.List;
 
 public interface JobService {
-    public List<Job> getAllJobs();
-    public Job getJobById(Long id);
-    public Job addJob(Job job);
-    public Job updateJob(Job job);
-    public void deleteJob(Long id);
-//    public List<CptReport> getAllCptReport();
-//    public List<JobSearchReport> getAllCptReport();
+    List<Job> getAllJobs();
+
+    Job getJobById(Long id);
+
+    Job addJob(Job job);
+
+    Job updateJob(Job job);
+
+    void deleteJob(Long id);
 
 
 }

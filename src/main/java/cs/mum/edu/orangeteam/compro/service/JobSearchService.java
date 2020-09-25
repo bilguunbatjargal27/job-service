@@ -11,16 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface JobSearchService {
 
-//    public JobSearchReport addCptReport(JobSearchReport jobSearchReport);
-//    public JobSearchReport updateCptReport(JobSearchReport jobSearchReport);
-//    public void deleteCptReport(Long id);
-//    public JobSearchReport findCptReportById(Long id);
-//    public Collection<JobSearchReport> findAll();
-//    public List<JobSearchReport> getAllJobSearch();
-	
-	public List<JobSearchReport> getAllJobSearchReport();
-	public JobSearchReport getJobSearchReportById(Long id);
-	public JobSearchReport addJobSearchReport(JobSearchReport report);
-	public JobSearchReport updateJobSearchReport(JobSearchReport report);
-	public void deleteJobSearchReport(Long id);
+	List<JobSearchReport> getAllJobSearchReport();
+	JobSearchReport getJobSearchReportById(Long id);
+	JobSearchReport addJobSearchReport(JobSearchReport report);
+	JobSearchReport updateJobSearchReport(JobSearchReport report);
+	void deleteJobSearchReport(Long id);
 }

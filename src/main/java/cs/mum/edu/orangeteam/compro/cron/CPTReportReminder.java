@@ -27,8 +27,6 @@ public class CPTReportReminder extends AbstactReporter{
     @Autowired
     RestTemplate restTemplate;
 
-    // CPT duedate 2 weeks before
-
     @Scheduled(cron =  "0 0 */6 ? * *") // every 6 hours this cron works
     public void cptReportReminder(){
         List<CptReport> cptReportList = (List<CptReport>) cptReportService.findAll();

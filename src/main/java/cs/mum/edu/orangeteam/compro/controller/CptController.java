@@ -14,52 +14,46 @@ import java.util.List;
 @RestController
 @RequestMapping("/cptreports")
 public class CptController {
+
     @Autowired
     private CptReportService cptReportService;
 
-
-
     @GetMapping("")
-    public ResponseEntity<?> getAllCptReport(){
+    public ResponseEntity<?> getAllCptReport() {
         List<CptReport> cptReports = (List<CptReport>) cptReportService.findAll();
         return ResponseEntity.ok(cptReports);
     }
 
-
-
     @GetMapping("/{id}")
-    public ResponseEntity<?> getCptReportById(@PathVariable("id") Long id){
+    public ResponseEntity<?> getCptReportById(@PathVariable("id") Long id) {
         CptReport cptReport = cptReportService.findCptReportById(id);
         return ResponseEntity.ok(cptReport);
     }
 
-
     @PostMapping(value = "/add")
-    public ResponseEntity<?> addCptReport(@Valid @RequestBody final CptReport cptReport, BindingResult bindingResult){
-        if(bindingResult.hasErrors()) {
+    public ResponseEntity<?> addCptReport(@Valid @RequestBody final CptReport cptReport, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
         CptReport cptReport1 = cptReportService.addCptReport(cptReport);
         return ResponseEntity.status(HttpStatus.OK).body(cptReport1);
     }
 
-        @PutMapping("/update")
-        public ResponseEntity<?> updateCptReport(@Valid @RequestBody final CptReport cptReport, BindingResult bindingResult){
-            if(bindingResult.hasErrors()) {
-                return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
-            }
-            CptReport cptReport1 = cptReportService.updateCptReport(cptReport);
-            return ResponseEntity.status(HttpStatus.OK).body(cptReport1);
+    @PutMapping("/update")
+    public ResponseEntity<?> updateCptReport(@Valid @RequestBody final CptReport cptReport, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
+        CptReport cptReport1 = cptReportService.updateCptReport(cptReport);
+        return ResponseEntity.status(HttpStatus.OK).body(cptReport1);
+    }
 
-
-
-        @DeleteMapping("/delete/{id}")
-        public ResponseEntity<?> deleteCptReport(@PathVariable("id") Long id){
-            CptReport cptReport = cptReportService.findCptReportById(id);
-            if(cptReport == null) return ResponseEntity.badRequest().body("There is no cpt has an id equal to" + id);
-            cptReportService.findCptReportById(id);
-            return ResponseEntity.status(HttpStatus.OK).body("cpt is deleted successfully");
-        }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteCptReport(@PathVariable("id") Long id) {
+        CptReport cptReport = cptReportService.findCptReportById(id);
+        if (cptReport == null) return ResponseEntity.badRequest().body("There is no cpt has an id equal to" + id);
+        cptReportService.findCptReportById(id);
+        return ResponseEntity.status(HttpStatus.OK).body("cpt is deleted successfully");
+    }
 
 }

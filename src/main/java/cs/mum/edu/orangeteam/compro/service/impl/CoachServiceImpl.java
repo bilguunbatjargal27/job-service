@@ -15,44 +15,44 @@ import cs.mum.edu.orangeteam.compro.service.CoachService;
 @Transactional
 public class CoachServiceImpl implements CoachService {
 
-	@Autowired
-	private CoachRepository coachRepository;
+    @Autowired
+    private CoachRepository coachRepository;
 
-	@Autowired
-	private JobServiceImpl jobService;
+    @Autowired
+    private JobServiceImpl jobService;
 
-	@Override
-	public List<Coach> getAllCoaches() {
+    @Override
+    public List<Coach> getAllCoaches() {
 
-		return coachRepository.findAll();
-	}
+        return coachRepository.findAll();
+    }
 
-	@Override
-	public Coach findCoachById(Long id) {
-		if (coachRepository.findById(id).isPresent())
-			return coachRepository.findById(id).get();
-		else
-			return null;
-	}
+    @Override
+    public Coach findCoachById(Long id) {
+        if (coachRepository.findById(id).isPresent())
+            return coachRepository.findById(id).get();
+        else
+            return null;
+    }
 
-	@Override
-	public Coach addCoach(Coach coach) {		
-		return coachRepository.save(coach);
-	}
+    @Override
+    public Coach addCoach(Coach coach) {
+        return coachRepository.save(coach);
+    }
 
-	@Override
-	public Coach updateCoach(Coach coach) {		
-		return coachRepository.save(coach);
-	}
+    @Override
+    public Coach updateCoach(Coach coach) {
+        return coachRepository.save(coach);
+    }
 
-	@Override
-	public void deleteCoach(Long id) {
-		coachRepository.existsById(id);
-		
-	}		
-	
-	public List<CptReport> getAllCptReport(){
-		return jobService.getAllCptReport();
-	}
+    @Override
+    public void deleteCoach(Long id) {
+        coachRepository.existsById(id);
+
+    }
+
+    public List<CptReport> getAllCptReport() {
+        return jobService.getAllCptReport();
+    }
 
 }

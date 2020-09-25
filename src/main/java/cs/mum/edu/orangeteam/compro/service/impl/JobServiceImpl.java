@@ -25,12 +25,13 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public List<Job> getAllJobs() {
-        return jobRepository.findAll();  }
+        return jobRepository.findAll();
+    }
 
     @Override
     public Job getJobById(Long id) {
-        if(jobRepository.findById(id).isPresent())
-        return jobRepository.findById(id).get();
+        if (jobRepository.findById(id).isPresent())
+            return jobRepository.findById(id).get();
         else
             return null;
     }
@@ -51,15 +52,14 @@ public class JobServiceImpl implements JobService {
 
     }
 
-    public List<CptReport> getAllCptReport(){
+    public List<CptReport> getAllCptReport() {
 
         return cptReportRepository.findAll();
     }
-    public List<JobSearchReport> getAllJobSearchReport(){
+
+    public List<JobSearchReport> getAllJobSearchReport() {
         return jobSearchRepository.findAll();
     }
-
-
 
 
 }
