@@ -110,5 +110,4 @@ public class Coach {
 				+ address + ", responsibilityDescription=" + responsibilityDescription + ", jobs=" + jobs + "]";
 	}
 
-	
 }
