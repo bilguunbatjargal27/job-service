@@ -16,6 +16,9 @@ public class CptReport {
 	@Temporal(TemporalType.DATE)
 	private Date submittedDate;
 
+	@Temporal(TemporalType.DATE)
+	private Date dueDate;
+
 	@Column(length =150)
 	private String cptReport;
 
@@ -56,5 +59,13 @@ public class CptReport {
 
 	public void setJob(Job job) {
 		this.job = job;
+	}
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 }

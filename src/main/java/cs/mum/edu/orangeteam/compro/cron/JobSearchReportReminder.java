@@ -6,6 +6,7 @@ import cs.mum.edu.orangeteam.compro.model.Job;
 import cs.mum.edu.orangeteam.compro.model.JobSearchReport;
 import cs.mum.edu.orangeteam.compro.service.CptReportService;
 import cs.mum.edu.orangeteam.compro.service.JobSearchService;
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -15,11 +16,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.List;
 
 @Component
 @EnableScheduling
-public class JobSearchReportReminder {
+public class JobSearchReportReminder extends AbstactReporter{
 
     @Autowired
     JobSearchService jobSearchService;
@@ -27,27 +29,14 @@ public class JobSearchReportReminder {
     @Autowired
     RestTemplate restTemplate;
 
-    // CPT duedate 2 weeks before
-
     @Scheduled(cron =  "0 0 */6 ? * *") // every 6 hours this cron works
     public void cptReportReminder(){
         List<JobSearchReport> jobSearchReports = jobSearchService.getAllJobSearchReport();
+        Date date = DateUtils.addDays(new Date(), 21);
         for(JobSearchReport report : jobSearchReports){
-            if(1 == 1){ // will check due date before 3 weeks
-                Job job = report.getJob();
-                ResponseEntity<List<Student>> responseEntity = restTemplate.exchange("http://course-service/course/students/byjob/" + job.getId(),
-                        HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
-                        });
-                List<Student> students = responseEntity.getBody();
-                for (Student student : students){
-
-                    ResponseEntity<String> responseEntity1 = restTemplate.exchange("http://course-service/course/students/noticeCpt/" + student.getId(), HttpMethod.GET, null, String.class);
-                    String msg = responseEntity1.getBody();
-                    System.out.println(msg);
-                }
-            }
+            reporter(date, report.getDueDate(), restTemplate, report.getJob());
         }
-        System.out.println("REMIND CPT REPORT");
+        System.out.println("REMIND JOB SEARCH REPORT");
     }
 
 }

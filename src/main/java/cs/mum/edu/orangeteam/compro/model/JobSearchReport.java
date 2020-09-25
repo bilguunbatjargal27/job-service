@@ -13,6 +13,9 @@ public class JobSearchReport{
 	@Temporal(TemporalType.DATE)
 	private Date submittedDate;
 
+	@Temporal(TemporalType.DATE)
+	private Date dueDate;
+
 	@ManyToOne
 	@JoinColumn(name = "job_id")
 	private Job job;
@@ -54,5 +57,13 @@ public class JobSearchReport{
 
 	public void setJobSearchReport(String jobSearchReport) {
 		this.jobSearchReport = jobSearchReport;
+	}
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 }
