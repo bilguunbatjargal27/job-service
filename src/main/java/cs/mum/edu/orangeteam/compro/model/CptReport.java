@@ -18,12 +18,22 @@ public class CptReport {
 
 	@Column(length =150)
 	private String cptReport;
+	@Temporal(TemporalType.DATE)
+	private Date dueDate;
 
 	@ManyToOne
 	@JoinColumn(name = "job_id")
 	private Job job;
 
 	public CptReport() {
+	}
+
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 
 	public Long getId() {

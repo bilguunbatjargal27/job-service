@@ -35,7 +35,7 @@ public class CoachController {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	@GetMapping("getStudents")
+	@GetMapping("/getStudents")
 	public List<Student> getStudentsName() {
 		ResponseEntity<List<Student>> responseEntity = restTemplate.exchange("http://course-service/course/students",
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
